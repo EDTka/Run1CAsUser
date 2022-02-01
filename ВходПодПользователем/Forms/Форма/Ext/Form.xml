@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.13">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ПараметрыВходовВойтиПодПользователем" id="29">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВойтиПодПользователем</CommandName>
+				<ExtendedTooltip name="ПараметрыВходовВойтиПодПользователемРасширеннаяПодсказка" id="30"/>
+			</Button>
+			<Button name="ПараметрыВходовВосстановитьПараметрыВхода" id="31">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВосстановитьПараметрыВхода</CommandName>
+				<ExtendedTooltip name="ПараметрыВходовВосстановитьПараметрыВходаРасширеннаяПодсказка" id="32"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтладка" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отладка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отладка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтладкаРасширеннаяПодсказка" id="34"/>
+			<ChildItems>
+				<CheckBoxField name="ПодключитьКОтладке" id="35">
+					<DataPath>ПодключитьКОтладке</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПодключитьКОтладкеКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ПодключитьКОтладкеРасширеннаяПодсказка" id="37"/>
+				</CheckBoxField>
+				<InputField name="ПротоколОтладки" id="38">
+					<DataPath>ПротоколОтладки</DataPath>
+					<DropListButton>true</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ChoiceButtonRepresentation>ShowInDropList</ChoiceButtonRepresentation>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>TCP/IP</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">TCPIP</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>HTTP</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">HTTP</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ПротоколОтладкиКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ПротоколОтладкиРасширеннаяПодсказка" id="40"/>
+				</InputField>
+				<InputField name="СерверОтладки" id="41">
+					<DataPath>СерверОтладки</DataPath>
+					<ContextMenu name="СерверОтладкиКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="СерверОтладкиРасширеннаяПодсказка" id="43"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ПараметрыВходов" id="1">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ПараметрыВходов</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПараметрыВходовКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ПараметрыВходовКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ПараметрыВходовРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ПараметрыВходовСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ПараметрыВходов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПараметрыВходовСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ПараметрыВходовСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПараметрыВходовСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ПараметрыВходов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПараметрыВходовСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ПараметрыВходовСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПараметрыВходовУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ПараметрыВходов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПараметрыВходовУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ПараметрыВходовУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ПараметрыВходовВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ПараметрыВходовИмяПользователя" id="14">
+					<DataPath>Объект.ПараметрыВходов.ИмяПользователя</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПараметрыВходовИмяПользователяКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ПараметрыВходовИмяПользователяРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<CheckBoxField name="ПараметрыВходовАутентификация1С" id="17">
+					<DataPath>Объект.ПараметрыВходов.Аутентификация1С</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПараметрыВходовАутентификация1СКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ПараметрыВходовАутентификация1СРасширеннаяПодсказка" id="19"/>
+				</CheckBoxField>
+				<InputField name="ПараметрыВходовДатаВхода" id="20">
+					<DataPath>Объект.ПараметрыВходов.ДатаВхода</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПараметрыВходовДатаВходаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ПараметрыВходовДатаВходаРасширеннаяПодсказка" id="22"/>
+				</InputField>
+				<InputField name="ПараметрыВходовДатаВосстановленияПараметровПользователя" id="23">
+					<DataPath>Объект.ПараметрыВходов.ДатаВосстановленияПараметровПользователя</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПараметрыВходовДатаВосстановленияПараметровПользователяКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ПараметрыВходовДатаВосстановленияПараметровПользователяРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<CheckBoxField name="ПараметрыВходовАктивныВременныеПараметрыПользователя" id="26">
+					<DataPath>Объект.ПараметрыВходов.АктивныВременныеПараметрыПользователя</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПараметрыВходовАктивныВременныеПараметрыПользователяКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ПараметрыВходовАктивныВременныеПараметрыПользователяРасширеннаяПодсказка" id="28"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:ExternalDataProcessorObject.ВходПодПользователем</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПодключитьКОтладке" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключить к отладке</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПротоколОтладки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Протокол отладки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>10</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СерверОтладки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервер отладки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяТекПользователя" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя тек пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>150</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПодключитьКОтладкеЗначениеВНастройках" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключить к отладке значение в настройках</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВойтиПодПользователем" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Войти под пользователем</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Войти под пользователем</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВойтиПодПользователем</Action>
+		</Command>
+		<Command name="ВосстановитьПараметрыВхода" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить параметры входа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить параметры входа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВосстановитьПараметрыВхода</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ДополнительнаяОбработкаСсылка">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="ИдентификаторКоманды">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="ОбъектыНазначения">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>
